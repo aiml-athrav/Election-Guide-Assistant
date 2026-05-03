@@ -106,9 +106,11 @@ The landing page is designed with a high-end **Glassmorphism** aesthetic, featur
 
 ## 🎨 User Interface Preview
 
-| AI Assistant | Eligibility Checker | Election Timeline |
-| :---: | :---: | :---: |
-| ![Chat](image/Ai%20assistant.png) | ![Eligibility](image/eligiblity%20checker.png) | ![Timeline](image/election%20timeline.png) |
+| Module | Interface Preview |
+| :--- | :--- |
+| **🤖 AI Assistant** | ![Chat](image/Ai%20assistant.png) |
+| **⚖️ Eligibility Checker** | ![Eligibility](image/eligiblity%20checker.png) |
+| **📅 Election Timeline** | ![Timeline](image/election%20timeline.png) |
 
 ---
 
