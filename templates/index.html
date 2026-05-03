@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Guide Assistant</title>
+    <!-- Modern Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=3">
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon"><i class="fa-solid fa-check-to-slot"></i></div>
+                <h2>Voter<span>AI</span></h2>
+            </div>
+            
+            <nav class="nav-menu">
+                <button class="nav-item active" data-target="chat-view">
+                    <i class="fa-solid fa-message"></i>
+                    <span>AI Assistant</span>
+                </button>
+                <button class="nav-item" data-target="timeline-view">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <span>Election Timeline</span>
+                </button>
+                <button class="nav-item" data-target="eligibility-view">
+                    <i class="fa-solid fa-user-check"></i>
+                    <span>Eligibility Check</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>Neutral & Informative</p>
+                <small>Powered by Gemini AI</small>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-container">
+            
+            <!-- Chat View (Default) -->
+            <section id="chat-view" class="view-section active">
+                <div class="view-header">
+                    <div class="header-titles">
+                        <h1>Election Guide AI</h1>
+                        <p>Ask anything about voting, registration, or candidates in your area.</p>
+                    </div>
+                </div>
+                
+                <div class="chat-container">
+                    <div class="chat-history" id="chat-messages">
+                        <div class="message ai-message">
+                            <div class="msg-avatar"><i class="fa-solid fa-robot"></i></div>
+                            <div class="msg-bubble">
+                                Hello! I am your Election Guide AI Assistant. I can help you understand how to register, where to vote, or explain the election process. What would you like to know?
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-area">
+                        <form id="chat-form">
+                            <input type="text" id="user-input" placeholder="Type your message here..." autocomplete="off" required>
+                            <button type="submit" class="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline View -->
+            <section id="timeline-view" class="view-section">
+                <div class="view-header">
+                    <h1>Election Process Timeline</h1>
+                    <p>A simple step-by-step guide to how general elections work.</p>
+                </div>
+                
+                <div class="content-card">
+                    <div class="modern-timeline">
+                        <div class="timeline-step">
+                            <div class="step-marker"><i class="fa-solid fa-bullhorn"></i></div>
+                            <div class="step-content">
+                                <h3>1. Official Announcement</h3>
+                                <p>The Election Commission officially declares the dates for nominations, polling, and results.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="step-marker"><i class="fa-solid fa-address-card"></i></div>
+                            <div class="step-content">
+                                <h3>2. Voter Registration</h3>
+                                <p>Citizens must ensure their names are on the voter rolls. New voters can apply for their Voter ID cards during this period.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="step-marker"><i class="fa-solid fa-person-booth"></i></div>
+                            <div class="step-content">
+                                <h3>3. Polling Day</h3>
+                                <p>Registered voters go to their designated polling booths, verify their identity, and cast their secret ballot.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="step-marker"><i class="fa-solid fa-chart-pie"></i></div>
+                            <div class="step-content">
+                                <h3>4. Counting & Results</h3>
+                                <p>Votes from all machines/ballots are tallied centrally, and the final winners are officially announced.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Eligibility View -->
+            <section id="eligibility-view" class="view-section">
+                <div class="view-header">
+                    <h1>Eligibility Checker</h1>
+                    <p>Find out quickly if you meet the standard criteria to vote.</p>
+                </div>
+                
+                <div class="content-card form-card">
+                    <form id="eligibility-form" class="modern-form">
+                        <div class="input-group">
+                            <label for="age">What is your current age?</label>
+                            <input type="number" id="age" min="0" max="120" placeholder="e.g. 18" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>Are you a legal citizen of the country where the election is taking place?</label>
+                            <div class="radio-options">
+                                <label class="radio-label">
+                                    <input type="radio" name="citizen" value="yes" required>
+                                    <span class="radio-custom"></span>
+                                    Yes, I am a citizen
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="citizen" value="no">
+                                    <span class="radio-custom"></span>
+                                    No, I am not
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="action-btn">Check My Eligibility</button>
+                    </form>
+                    
+                    <div id="eligibility-result" class="status-banner hidden">
+                        <!-- Result text will be injected here -->
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}?v=2"></script>
+</body>
+</html>

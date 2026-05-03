@@ -1,0 +1,70 @@
+import os
+from flask import Flask, render_template, request, jsonify
+from google import genai
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+app = Flask(__name__)
+
+# Configure Gemini API
+API_KEY = os.getenv("GEMINI_API_KEY")
+if API_KEY:
+    client = genai.Client(api_key=API_KEY)
+else:
+    client = None
+    print("WARNING: GEMINI_API_KEY not found in environment variables.")
+
+# System prompt to ensure the AI acts as an Election Guide and remains neutral
+SYSTEM_PROMPT = """You are a helpful, neutral, and informative Election Guide AI Assistant. 
+Your goal is to explain the election process, timeline, eligibility criteria, and help users understand how to vote.
+You must remain completely neutral and objective. Do not endorse any political party, candidate, or ideology.
+Explain concepts in a simple, beginner-friendly way. If a user asks a complex question, break it down into easy steps."""
+
+def get_gemini_response(user_message):
+    try:
+        if not client:
+            return "Error: Gemini API Key is not configured. Please check your .env file."
+        
+        # Combine system prompt with user message
+        full_prompt = f"{SYSTEM_PROMPT}\n\nUser: {user_message}\nAssistant:"
+        
+        response = client.models.generate_content(
+            model='gemini-2.5-flash',
+            contents=full_prompt,
+        )
+        return response.text
+    except Exception as e:
+        return f"Error communicating with AI: {str(e)}"
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/api/chat', methods=['POST'])
+def chat():
+    data = request.json
+    user_message = data.get('message', '')
+    
+    if not user_message:
+        return jsonify({'error': 'Message is required'}), 400
+        
+    ai_response = get_gemini_response(user_message)
+    
+    return jsonify({
+        'response': ai_response
+    })
+
+import threading
+import webbrowser
+
+if __name__ == '__main__':
+    print("Starting Election Guide AI Assistant...")
+    print("Opening browser automatically...")
+    
+    # Auto-open browser (preventing double open from debug reloader)
+    if os.environ.get('WERKZEUG_RUN_MAIN') != 'true':
+        threading.Timer(1.5, lambda: webbrowser.open('http://127.0.0.1:5000/')).start()
+        
+    app.run(debug=True, port=5000)
