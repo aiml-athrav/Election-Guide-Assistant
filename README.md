@@ -1,7 +1,7 @@
 # 🗳️ VoterAI: The Ultimate Election Guide Assistant
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Status-Highly_Professional-blue?style=for-the-badge&logo=rocket" alt="Status" />
+  <img src="https://img.shields.io/badge/Status-Mini Project-blue?style=for-the-badge&logo=rocket" alt="Status" />
   <img src="https://img.shields.io/badge/Backend-Flask_3.0-lightgrey?style=for-the-badge&logo=flask" alt="Backend" />
   <img src="https://img.shields.io/badge/AI_Engine-Gemini_2.5-orange?style=for-the-badge&logo=google-gemini" alt="AI" />
   <img src="https://img.shields.io/badge/UI_Design-Premium_Glassmorphism-purple?style=for-the-badge&logo=css3" alt="UI" />
@@ -79,7 +79,7 @@ A precision tool designed to verify voting credentials instantly based on global
 
 ---
 
-## 🖼️ User Interface Preview
+##   User Interface Preview
 
 | AI Assistant | Eligibility Checker | Election Timeline |
 | :---: | :---: | :---: |
