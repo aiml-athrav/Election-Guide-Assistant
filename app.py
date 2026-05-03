@@ -31,7 +31,7 @@ def get_gemini_response(user_message):
         full_prompt = f"{SYSTEM_PROMPT}\n\nUser: {user_message}\nAssistant:"
         
         response = client.models.generate_content(
-            model='gemini-2.5-flash',
+            model='gemini-2.0-flash',
             contents=full_prompt,
         )
         return response.text

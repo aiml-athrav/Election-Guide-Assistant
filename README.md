@@ -7,11 +7,21 @@
   <img src="https://img.shields.io/badge/UI_Design-Premium_Glassmorphism-purple?style=for-the-badge&logo=css3" alt="UI" />
 </p>
 
+<p align="center">
+  <a href="https://election-guide-assistant-9syy.onrender.com" target="_blank">
+    <img src="https://img.shields.io/badge/Live_Demo-Visit_Website-00C853?style=for-the-badge&logo=render&logoColor=white" alt="Live Demo" />
+  </a>
+</p>
+
 ---
 
 ## 🌟 Overview
 
-**VoterAI** is a state-of-the-art, AI-powered election intelligence platform. It bridges the gap between complex electoral procedures and citizens by providing a neutral, real-time, and highly interactive interface. Whether you are a first-time voter or a seasoned citizen, VoterAI simplifies the democratic process.
+**VoterAI** is a state-of-the-art, AI-powered election intelligence platform. It bridges the gap between complex electoral procedures and citizens by providing a neutral, real-time, and highly interactive interface.
+
+🔗 **Live Website**: [election-guide-assistant-9syy.onrender.com](https://election-guide-assistant-9syy.onrender.com)
+
+Whether you are a first-time voter or a seasoned citizen, VoterAI simplifies the democratic process.
 
 ---
 
@@ -79,11 +89,26 @@ A precision tool designed to verify voting credentials instantly based on global
 
 ---
 
-##   User Interface Preview
+## 🌐 Premium Landing Page Experience
+
+The landing page is designed with a high-end **Glassmorphism** aesthetic, featuring vibrant gradients, fluid layouts, and an intuitive user journey. It serves as the gateway to all intelligence modules.
+
+<p align="center">
+  <img src="image/landing%20Page.png" width="100%" alt="Landing Page Full View">
+</p>
+
+### ✨ Key Experience Highlights
+- **Animated Splash Screen**: A professional-grade introduction with smooth entry animations.
+- **Modern UI Architecture**: Full-length interactive dashboard with frosted glass effects.
+- **Responsive Navigation**: Optimized for all devices, ensuring a seamless citizen experience.
+
+---
+
+## 🎨 User Interface Preview
 
 | AI Assistant | Eligibility Checker | Election Timeline |
 | :---: | :---: | :---: |
-| ![Chat](image/ai%20assistant.png) | ![Eligibility](image/eligiblity%20checker.png) | ![Timeline](image/election%20timeline.png) |
+| ![Chat](image/Ai%20assistant.png) | ![Eligibility](image/eligiblity%20checker.png) | ![Timeline](image/election%20timeline.png) |
 
 ---
 
@@ -109,6 +134,7 @@ Distributed under the **MIT License**. See `LICENSE` for more information.
 **Aiml-Athrav**
 - GitHub: [@aiml-athrav](https://github.com/aiml-athrav)
 - Project: [VoterAI Assistant](https://github.com/aiml-athrav/Election-Guide-Assistant)
+- Live Demo: [VoterAI Assistant on Render](https://election-guide-assistant-9syy.onrender.com)
 
 ---
 
