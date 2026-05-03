@@ -60,11 +60,16 @@ import threading
 import webbrowser
 
 if __name__ == '__main__':
+    import socket
+    hostname = socket.gethostname()
+    local_ip = socket.gethostbyname(hostname)
+    
     print("Starting Election Guide AI Assistant...")
-    print("Opening browser automatically...")
+    print(f"Access the application at: http://{local_ip}:5000 (Use this on your mobile!)")
+    print("Opening browser automatically on this computer...")
     
     # Auto-open browser (preventing double open from debug reloader)
     if os.environ.get('WERKZEUG_RUN_MAIN') != 'true':
-        threading.Timer(1.5, lambda: webbrowser.open('http://127.0.0.1:5000/')).start()
+        threading.Timer(1.5, lambda: webbrowser.open(f'http://127.0.0.1:5000/')).start()
         
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5000, host='0.0.0.0')

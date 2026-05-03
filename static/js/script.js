@@ -1,4 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Splash Screen Logic
+    const startBtn = document.getElementById('start-btn');
+    const splashScreen = document.getElementById('splash-screen');
+    const appWrapper = document.querySelector('.app-wrapper');
+
+    if (startBtn) {
+        startBtn.addEventListener('click', () => {
+            splashScreen.classList.add('hidden');
+            appWrapper.classList.remove('blur');
+            
+            // Optional: Start with AI view if not already
+            document.querySelector('[data-target="chat-view"]').click();
+        });
+    }
+
     // Nav view switching logic
     const navItems = document.querySelectorAll('.nav-item');
     const viewSections = document.querySelectorAll('.view-section');

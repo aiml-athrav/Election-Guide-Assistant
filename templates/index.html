@@ -10,7 +10,19 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=3">
 </head>
 <body>
-    <div class="app-wrapper">
+    <!-- Splash Screen / Intro Page -->
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <div class="splash-logo">
+                <i class="fa-solid fa-check-to-slot"></i>
+            </div>
+            <h1 class="splash-title">Welcome to <span>VoterAI</span></h1>
+            <p class="splash-subtitle">Empowering Every Vote with Intelligence</p>
+            <button id="start-btn" class="start-btn">Start Assistant <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <div class="app-wrapper blur">
         <!-- Sidebar Navigation -->
         <aside class="sidebar">
             <div class="brand">
