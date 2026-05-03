@@ -81,12 +81,9 @@ A precision tool designed to verify voting credentials instantly based on global
 
 ## 🖼️ User Interface Preview
 
-> [!NOTE]
-> Below are placeholders for your project screenshots. To add your own, upload images to a `screenshots/` folder and update the links.
-
-| Chat Interface | Eligibility Checker |
-| :---: | :---: |
-| ![Chat](https://via.placeholder.com/400x250?text=Premium+AI+Chat+Interface) | ![Eligibility](https://via.placeholder.com/400x250?text=Smart+Eligibility+Auditor) |
+| AI Assistant | Eligibility Checker | Election Timeline |
+| :---: | :---: | :---: |
+| ![Chat](image/ai%20assistant.png) | ![Eligibility](image/eligiblity%20checker.png) | ![Timeline](image/election%20timeline.png) |
 
 ---
 
