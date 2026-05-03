@@ -44,9 +44,8 @@ pip install -r requirements.txt
 ```
 
 ### Step 5: Setup API Key
-1. In the project folder, locate the file named `.env.example`.
-2. Rename this file to exactly `.env`.
-3. Open the `.env` file in any text editor and replace `your_api_key_here` with your actual Google Gemini API key.
+1. Create the `.env` file.
+2. Open the `.env` file in any text editor and replace `your_api_key_here` with your actual Google Gemini API key.
 
 ```env
 GEMINI_API_KEY=AIzaSy...your_actual_key...
@@ -74,6 +73,6 @@ Open your web browser (Chrome, Edge, Firefox) and go to:
 - **Error: `ModuleNotFoundError: No module named 'flask'`**
   - **Fix**: You forgot to activate your virtual environment or install dependencies. Run `venv\Scripts\activate` then `pip install -r requirements.txt`.
 - **Error: `Gemini API Key is not configured` in Chat**
-  - **Fix**: Make sure you renamed `.env.example` to `.env` and that your API key is correctly pasted inside it without quotes.
+  - **Fix**: Make sure you created the `.env` file and that your API key is correctly pasted inside it without quotes.
 - **Python is not recognized as an internal or external command**
   - **Fix**: Python is not installed, or not added to your system PATH. Reinstall Python and check the "Add to PATH" option.
