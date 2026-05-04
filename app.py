@@ -23,14 +23,20 @@ You must remain completely neutral and objective. Do not endorse any political p
 Explain concepts in a simple, beginner-friendly way. If a user asks a complex question, break it down into easy steps."""
 
 def get_gemini_response(user_message):
+    global client
     try:
+        # Lazy initialization for cloud environments
         if not client:
-            return "Error: Gemini API Key is not configured. Please check your .env file."
+            API_KEY = os.environ.get("GEMINI_API_KEY")
+            if API_KEY:
+                client = genai.Client(api_key=API_KEY)
+            else:
+                return "Error: Gemini API Key is not configured. Please check your environment variables."
         
         # Combine system prompt with user message
         full_prompt = f"{SYSTEM_PROMPT}\n\nUser: {user_message}\nAssistant:"
         
-        # Using gemini-flash-latest as it often has better availability on free tier
+        # Using gemini-flash-latest for best stability
         response = client.models.generate_content(
             model='gemini-flash-latest',
             contents=full_prompt,
@@ -44,11 +50,9 @@ def get_gemini_response(user_message):
     except Exception as e:
         error_msg = str(e)
         if "429" in error_msg or "RESOURCE_EXHAUSTED" in error_msg:
-            return "Error: API Quota exceeded. Please wait a moment or check your Gemini API billing/quota settings."
+            return "Error: API Quota exceeded. Please wait a moment or check your Gemini API settings."
         elif "401" in error_msg or "403" in error_msg:
-            return "Error: Invalid API Key. Please ensure your GEMINI_API_KEY is correct in the .env file."
-        elif "404" in error_msg:
-            return f"Error: Model not found. The configured model might not be available for your API key."
+            return "Error: Invalid API Key. Please check your settings."
         return f"Error communicating with AI: {error_msg}"
 
 @app.route('/')
