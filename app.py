@@ -30,13 +30,26 @@ def get_gemini_response(user_message):
         # Combine system prompt with user message
         full_prompt = f"{SYSTEM_PROMPT}\n\nUser: {user_message}\nAssistant:"
         
+        # Using gemini-flash-latest as it often has better availability on free tier
         response = client.models.generate_content(
-            model='gemini-2.0-flash',
+            model='gemini-flash-latest',
             contents=full_prompt,
         )
-        return response.text
+        
+        if response and response.text:
+            return response.text
+        else:
+            return "The AI returned an empty response. Please try again."
+            
     except Exception as e:
-        return f"Error communicating with AI: {str(e)}"
+        error_msg = str(e)
+        if "429" in error_msg or "RESOURCE_EXHAUSTED" in error_msg:
+            return "Error: API Quota exceeded. Please wait a moment or check your Gemini API billing/quota settings."
+        elif "401" in error_msg or "403" in error_msg:
+            return "Error: Invalid API Key. Please ensure your GEMINI_API_KEY is correct in the .env file."
+        elif "404" in error_msg:
+            return f"Error: Model not found. The configured model might not be available for your API key."
+        return f"Error communicating with AI: {error_msg}"
 
 @app.route('/')
 def index():
